@@ -22,128 +22,156 @@ Phân tích kiến trúc và ca sử dụng hệ thống "Payroll System" trong 
    - Lớp dữ liệu: Cơ sở dữ liệu lưu trữ thông tin nhân viên, lương, bảng chấm công,...
 ## Biểu đồ Package mô tả kiến trúc:
 
-![Diagram](https://www.planttext.com/api/plantuml/png/P9112W8n34NtEKKlC7UOGLsu4yK3X1ebs4bB6WKHJ-R28ta5YsBfwFR_z_C_UTuVVJPKEuq14leZ7iYjb3A9eN4KTmNd0-RijfbqAKQwHqzVSHR5D8P02ZUe1uQK0lkV_8Rqp2NPSFCu8ZV8GepjCY7GSF2UYbcfDQMOsQA-oSdOhckxeTrHh4_Tdrehe2VPbKUy0000__y30000)
+![Diagram](https://www.planttext.com/api/plantuml/png/b5HBJiCm5Dpd54_Tvmgeg6M1LAIAbbNLnSDvAg7-oNvPMAWdOy6Hk0AnAaAQs9RmTcOyuyaetvzVIy_ek5EoiYZEU29OR34u8oNiWcTI2_Yee3z_i2DFcf5Res63WTml9Px3cloPZOLxQuzGm-75auD7RJi-vaaFoaeJYE2Ph77ihzHBTUlSisKhSiRxLf50ry3M6K7U6pSotA545s25KdGI-GPR6QLQx-EjINm8zuIwpp66Xgh46pMTZ5Wn4DJrNJbCLlJlb5TP8c6gsZKo9ZeTBetuAtfA9KrWex09T4Cd526-y9q4ZnWbupYJakKSYufoa1GQLTc0e-ec6uvTvnQOeCutLPK_V-RfYIrD32Ryz8nc4vkevYigk-JusM8lrP9q4tz3Fm000F__0m00)
 
 ## 2.Cơ chế phân tích
-1.Phân tích nhu cầu:
-- Mục tiêu: Xác định rõ ràng mục tiêu của bài toán, những gì cần đạt được.
-- Đối tượng: Ai là người sử dụng hệ thống, họ cần gì từ hệ thống.
-- Điều kiện: Những điều kiện ràng buộc, giới hạn khi giải quyết bài toán.
-2. Phân tích chức năng:
-- Mục tiêu: Phân chia bài toán thành các chức năng nhỏ hơn.
-- Phương pháp:
-- Phân tích luồng dữ liệu: Theo dõi sự di chuyển của dữ liệu qua hệ thống.
-- Phân tích các trường hợp sử dụng: Mô tả các tương tác giữa người dùng và hệ thống.
-- Phân tích các quá trình: Mô tả các hoạt động xảy ra trong hệ thống.
-3. Phân tích đối tượng:
-- Mục tiêu: Xác định các đối tượng trong bài toán và mối quan hệ giữa chúng.
-- Phương pháp:
-- Phân tích các danh từ: Tìm các danh từ trong mô tả bài toán để xác định các đối tượng.
-- Phân tích các động từ: Tìm các động từ để xác định các hành động mà các đối tượng thực hiện.
-4. Phân tích dữ liệu:
-- Mục tiêu: Xác định loại dữ liệu, cấu trúc dữ liệu cần sử dụng.
-- Phương pháp:
-- Phân tích các loại dữ liệu: Số, chữ, ngày tháng, hình ảnh,...
-- Phân tích mối quan hệ giữa các dữ liệu: Liên kết, phụ thuộc,...
-5. Phân tích thuật toán:
-- Mục tiêu: Lựa chọn thuật toán phù hợp để giải quyết các vấn đề con.
-- Phương pháp:
-- So sánh các thuật toán: Đánh giá ưu nhược điểm của từng thuật toán.
-- Xác định độ phức tạp: Đánh giá thời gian và không gian thực thi của thuật toán.
-6. Phân tích giao diện:
-- Mục tiêu: Thiết kế giao diện người dùng thân thiện, dễ sử dụng.
-- Phương pháp:
-- Phân tích các tương tác: Người dùng tương tác với hệ thống như thế nào.
-- Thiết kế giao diện: Sử dụng các nguyên tắc thiết kế giao diện người dùng.
-
+Các cơ chế chính cần giải quyết trong hệ thống này bao gồm:
+- Cơ chế bảo mật (Security Mechanism): Chỉ người dùng được phân quyền mới có thể truy cập dữ liệu cần thiết. Giảm thiểu nguy cơ rò rỉ thông tin và truy cập trái phép.
+- Cơ chế tính toán lương và hoa hồng (Payroll and Commission Calculation): Tính toán lương chính xác, bao gồm cả các trường hợp phức tạp như làm thêm giờ và hoa hồng. Giảm thiểu sai sót thủ công trong tính toán.
+- Cơ chế tích hợp cơ sở dữ liệu hiện tại (Legacy System Integration): Truy cập dữ liệu dự án hiện tại một cách ổn định mà không gây gián đoạn hệ thống cũ. Đảm bảo tính nhất quán giữa hệ thống mới và cũ.
+- Cơ chế xử lý tự động (Automation Mechanism): Quy trình trả lương diễn ra đúng lịch, không gián đoạn. Giảm thiểu công việc thủ công và nâng cao hiệu quả vận hành.
+- Cơ chế quản lý nhân viên (Employee Management Mechanism): Dễ dàng quản lý thông tin nhân viên. Đảm bảo dữ liệu được nhập chính xác.
+-  Cơ chế báo cáo và truy vấn dữ liệu (Reporting Mechanism): Nhân viên dễ dàng truy xuất thông tin mà không cần yêu cầu từ quản trị viên. Báo cáo được cập nhật theo thời gian thực.
+-  Cơ chế giao tiếp giữa các lớp (Layer Communication Mechanism): Tăng tính linh hoạt và khả năng mở rộng của hệ thống. Giao tiếp ổn định giữa các thành phần.
 ## 3.Phân tích ca sử dụng Payment
 
-3.1 Các lớp phân tích cho ca sử dụng Payment :
-- Customer (Khách hàng):
-  - Thuộc tính: id, name, email, address, phoneNumber, paymentMethods (danh sách các phương thức thanh toán), orders (danh sách các đơn hàng).
-  - Hành vi: Đăng ký tài khoản, cập nhật thông tin cá nhân, xem lịch sử đơn hàng.
-   
-- Payment (Giao dịch thanh toán):
-  - Thuộc tính: id, amount, status (thanh toán thành công, thất bại, chờ xử lý), paymentMethod, order, createdAt, updatedAt.
-  - Hành vi: Tạo một giao dịch thanh toán mới, cập nhật trạng thái thanh toán.
+## 3.1 Các lớp phân tích cho ca sử dụng Payment :
+- Employee (Nhân viên): Thông tin về nhân viên cần thanh toán.
+- Timecard (Bảng chấm công): Lưu thông tin giờ làm việc của nhân viên.
+- CommissionOrder (Đơn hoa hồng): Thông tin về các đơn hàng tạo ra hoa hồng cho nhân viên.
+- Payment (Thanh toán): Xử lý thông tin liên quan đến trả lương.
+- PayrollScheduler (Bộ lập lịch trả lương): Đảm nhận việc lên lịch và kích hoạt quy trình thanh toán.
+- PaymentProcessor (Bộ xử lý thanh toán): Xử lý logic tính toán số tiền cần trả, bao gồm lương cơ bản, giờ làm thêm và hoa hồng.
+- BankingService (Dịch vụ ngân hàng): Giao tiếp với hệ thống ngân hàng để thực hiện thanh toán.
 
-- PaymentMethod (Phương thức thanh toán):
+## 3.2 Biểu đồ Sequence:
+![Diagram](https://www.planttext.com/api/plantuml/png/V5DBJiCm4Dtx57C0Ue4iK4M5O0KLHM8ziYVKgZzXF0xgsLXm9Aw0GqcRX8JjlFVcFS-Clpu-rqcG9NkdK4jakFMDYqSYrPIorRR18B358qVdTdfF9ZlYAUWfo9QZffJY67osdZIo6HKtqNkRaetXaSryjr7j1iF1XjSTSMirATLdXDNrdsWLFD5RfdJfD6LqgZvMnnQsr1AyHpx0FcPEgaTXjM0WcSE9-r9KPAuWjbJoUhh_QJ3hENdrm5gV4J0eg2RC_sCCnIHetOBzT4qLRD3fx508cikeHfo1he8x2iG3DZ3fM3RxI-XJJanwD65BHiqwZDTR92Vmx2EC8TNbJiR41SDD3BLbZr8cCZ-9_dmgU8XYw-CvuoxhhejQKp3TZ_W6003__mC0)
 
-  - Thuộc tính: id, name, type (thẻ tín dụng, ví điện tử), details (thông tin chi tiết về phương thức thanh toán).
-  - Hành vi: Thêm một phương thức thanh toán mới.
-
-- PaymentGateway (Cổng thanh toán):
-  - Thuộc tính: id, name, url.
-  - Hành vi: Thực hiện giao dịch thanh toán, xác thực thông tin thanh toán, trả về kết quả thanh toán.
-
-- Order (Đơn hàng):
-  - Thuộc tính: id, totalAmount, status (đã đặt hàng, đang giao hàng, đã giao hàng, đã hủy), customer, items (danh sách các sản phẩm), payment (giao dịch thanh toán liên quan).
-  - Hành vi: Tạo một đơn hàng mới, cập nhật trạng thái đơn hàng.
-
-- Product (Sản phẩm):
-  - Thuộc tính: id, name, price, description.
-  - Hành vi: Không có hành vi cụ thể trong ngữ cảnh này.
-## Biểu đồ Sequence:
-- Khách hàng gửi yêu cầu thanh toán đến hệ thống.
-- Hệ thống gọi đến đối tượng Payment để tạo một giao dịch thanh toán mới.
-- Đối tượng Payment gọi đến PaymentGateway để thực hiện thanh toán.
-- PaymentGateway gửi yêu cầu đến ngân hàng và nhận phản hồi.
-- PaymentGateway trả kết quả về cho đối tượng Payment.
-- Đối tượng Payment cập nhật trạng thái của đơn hàng.
-
-## Nhiệm vụ của từng lớp:
-- Customer:
-Lưu trữ thông tin cá nhân (tên, địa chỉ, số điện thoại, email).
-Thực hiện các hành động liên quan đến thanh toán (chọn phương thức thanh toán, xem lịch sử giao dịch).
-- Payment:
-Đại diện cho một giao dịch thanh toán.
-Lưu trữ thông tin về phương thức thanh toán, số tiền, trạng thái.
-Gọi đến PaymentGateway để thực hiện thanh toán.
-Cập nhật trạng thái của đơn hàng.
-- PaymentMethod:
-Lưu trữ thông tin về các phương thức thanh toán (tên, mã).
-- PaymentGateway:
-Giao tiếp với ngân hàng hoặc các nhà cung cấp dịch vụ thanh toán khác.
-Xác thực thông tin thanh toán.
-Thực hiện việc chuyển tiền.
-Trả về kết quả thanh toán.
-- Order:
-Lưu trữ thông tin về đơn hàng (sản phẩm, số lượng, tổng tiền).
-Liên kết với đối tượng Payment.
+## 3.3 Nhiệm vụ của từng lớp:
+- `Employee`: Cung cấp thông tin cá nhân và phương thức thanh toán.
+- `Timecard`: Quản lý dữ liệu giờ làm việc của nhân viên, bao gồm cả giờ làm thêm.
+- `CommissionOrder`: Lưu trữ và cung cấp dữ liệu hoa hồng từ các đơn hàng.
+- `Payment`: Lưu trữ thông tin giao dịch thanh toán cho mỗi nhân viên.
+- `PayrollScheduler`: Điều phối quy trình thanh toán, từ việc thu thập dữ liệu đến việc kích hoạt thanh toán.
+- `PaymentProcessor`: Thực hiện tính toán tổng số tiền cần trả cho nhân viên dựa trên lương, giờ làm thêm và hoa hồng.
+- `BankingService`: Xử lý chuyển khoản hoặc giao dịch thanh toán dựa trên thông tin từ hệ thống.
 ## Thuộc tính và quan hệ
-- Customer: id, name, address, email, paymentMethods (một khách hàng có thể có nhiều phương thức thanh toán).
-- Payment: id, amount, status, paymentMethod (một phương thức thanh toán), order (một giao dịch thanh toán thuộc về một đơn hàng).
-- PaymentMethod: id, name, code.
-- PaymentGateway: id, url.
-- Order: id, totalAmount, status, customer (một đơn hàng thuộc về một khách hàng), payment (một đơn hàng có thể có nhiều giao dịch thanh toán).
-
+- Quan hệ giữa các lớp:
+      - Employee - Timecard/CommissionOrder: Nhân viên tạo bảng chấm công và đơn hoa hồng.
+      - Timecard/CommissionOrder - PayrollScheduler: Dữ liệu bảng chấm công và hoa hồng được chuyển đến bộ lập lịch.
+      - PayrollScheduler - PaymentProcessor: Bộ lập lịch điều phối việc tính toán lương.
+      - PaymentProcessor - Payment: Tạo bản ghi thanh toán sau khi tính toán.
+      - Payment - BankingService: Xử lý giao dịch thanh toán.
+- Thuộc tính tiêu biểu:
+         - Employee: `id`, `name`, `salaryType`, `paymentMethod`.
+         - Timecard: `employeeId`, `workDate`, `hoursWorked`, `overtimeHours`.
+         - CommissionOrder: `saleAmount`, `commissionRate`.
+         - Payment: `amount`, `paymentDate`
 ## Biểu đồ mô tả lớp phân tích:
-![Diagram](https://www.planttext.com/api/plantuml/png/Z5D1QiCm4Bpx5SB7WZyWYWabfQT2mO6Sr_6c5hKbevL8JEdBUkYJ-eLAjcmvZMbwCQlTsTcTaVpz-RKX0zhOjaaE3H2nnxPhL8_8tXF6Cb5n9gJneOGMEIkC5lBLdpj5mWWbENi9aSzMs3cw5gNXR3l7lbAYnACmv3ZGt3-CfppvICBWYUNcu1882sX0zvnLofODHf8uyc-QkM4dMYngn6iy1YFuR8dFrifgsYlzXX4vEBW5uw3-EpJBQf686g5VtGrQPRrZGSx8QImjPQ_lOwRzUPGovE6CmUeTdFEh5PxHrAhwfqcXvybfEK5_isb-Gkd96KKEbh8iovVl8K9ge9JT-NBSVx8fFIezjgxKB26DnGj94T1fTK0Yh5ZPNm23ZjzBA0y9xpAon9BpCTcuYtN_oWy0003__mC0)
+![Diagram](https://www.planttext.com/api/plantuml/png/X5HBJWCn3DtFAQAkg0GNw0ArV2HO82fQYNMQk6tKV8hZAQeG9sF1aRW2JkVJcPJFB4OQ-zdlFTkQhu_FSII9L3fRM5YIe23GhDOaj45GP88l2cLbZEBMRMtO0uYtGgJ7w94mdgeFBnsCn8pG-5KLYT9AtC_tsoo-bNi7dXw0ra7tKmlfDnEbGkcfJRmtz7FZG4dK3JtKSkwxCbu3RcuaCMLwLx5rA34-Sm8OkRH1rjYm0oHkUfVoJQQbkmxEcHZP_oDgm3zPGqBajEmV9gxoqc5LRT-dGq56Ewscqz3Lm-gn_IYX1kOYP4z0bmM3jJEr1btQexjO1seLPyEHs0MZJ-HDCIY8CRI5IbfLMgPjAZEHmnC9LxnhtkyCS6TKUrFRgd7JfM__l6zdsBsHzZWlBYwFfp8IWrWkdA4uw2FoxJ9m1HwG7J2qhK_GaranbcNkZ8Puk3UX9Sb1aRVyj_Pu2NM74tJTeZ_nv0cyZitA1S9B2P4EzNrefpwLAOJANnDB-MmF33FUa4b0GIXzb8UVmA38WBzfKy4l3Jfc6RFAz5lv1W00__y30000)
 
 ## 4. Phân tích ca sử dụng Maintain Timecard
 
-## Các lớp phân tích cho ca sử dụng:
-  - Employee: Đại diện cho nhân viên, chứa thông tin cá nhân, phòng ban, vị trí.
-  - Timecard: Đại diện cho bảng chấm công của một nhân viên trong một khoảng thời gian cụ thể.
-  - Project: Đại diện cho một dự án mà nhân viên tham gia.
-  - Task: Đại diện cho một công việc cụ thể trong dự án.
-## Biểu đồ Senquence
-- Employee đăng nhập vào hệ thống.
-- System hiển thị danh sách các timecard của nhân viên.
-- Employee chọn một timecard để chỉnh sửa.
-- System hiển thị chi tiết của timecard, bao gồm các task đã thực hiện, thời gian làm việc.
-- Employee cập nhật thông tin về thời gian làm việc, task đã hoàn thành.
-- System lưu lại các thay đổi và cập nhật thông tin trong cơ sở dữ liệu.
-- ## Nhiệm vụ của Từng Lớp Phân Tích
-- Employee: Thực hiện việc tạo, chỉnh sửa, xem xét timecard của mình.
-- Timecard: Lưu trữ thông tin về thời gian làm việc, các task đã hoàn thành của một nhân viên trong một khoảng thời gian cụ thể.
-- Project: Lưu trữ thông tin về dự án.
-- Task: Lưu trữ thông tin về các công việc trong dự án.
-## Thuộc tính và quan hệ:
-- Employee có quan hệ 1:N với Timecard (một nhân viên có nhiều timecard)
-- Timecard có quan hệ 1:1 với Employee, 1:N với Task
-- Project có quan hệ 1:N với Task
-- Task có quan hệ 1:1 với Project, N:N với Timecard (một task có thể thuộc nhiều timecard, một timecard có thể bao gồm nhiều task)
-## Biểu đồ lớp : Biểu đồ lớp sẽ mô tả các lớp trên, với các thuộc tính và phương thức của từng lớp, đồng thời chỉ ra các quan hệ giữa chúng.
+## 4.1 Các lớp phân tích cho ca sử dụng:
+- Employee (Nhân viên):
+      - Thực hiện thao tác quản lý bảng chấm công.
+      - Thuộc tính: id, name, role.
+- Timecard (Bảng chấm công):
+      - Quản lý dữ liệu giờ làm việc.
+      - Thuộc tính: timecardId, employeeId, workDate, hoursWorked, overtimeHours.
+- TimecardManager (Quản lý bảng chấm công):
+      - Đảm nhiệm các thao tác thêm, sửa, và xóa bảng chấm công.
+      - Phương thức: addTimecard(), updateTimecard(), deleteTimecard().
+- ValidationService (Dịch vụ kiểm tra tính hợp lệ):
+      - Kiểm tra dữ liệu bảng chấm công trước khi lưu trữ.
+      - Phương thức: validateTimecard().
+- TimecardDatabase (Cơ sở dữ liệu bảng chấm công):
+      - Lưu trữ và cung cấp dữ liệu bảng chấm công.
+      - Phương thức: saveTimecard(), updateTimecard(), deleteTimecard().
+## 4.2 Biểu đồ Senquence
+![Diagram](https://www.planttext.com/api/plantuml/png/X58xZi8m4Etd57C1H9zY1UBJePKsG3zh3yZInB763X9de-18N05dfIpP96XTk1Y_hpMFstqH4sbgAW4ogLRSL47gApE4F7R61V89zwvYGsftvEdC-kVjIE8i9LVxalNYp3HpJOc-AJ90Pu2pZw5kWKjhvuUGvNY-Pk74ln0OO5lwoBheHYyUjiumGk9iolu5mo-EZIG0adv5B1jZECPJ8u3vJ8GQDYwmf0k_QzKNwHZJsLQrFpcjVcAyy-x-ji3Fm3fAp9B5UsMsv2J-hzLZR5JpZkooNeO1UmkBVBNRymG00F__0m00)
+## 4.3 Các lớp và nhiệm vụ:
+- Employee: Tương tác với hệ thống để quản lý bảng chấm công.
+- Timecard: Lưu trữ thông tin từng bản ghi thời gian làm việc của nhân viên.
+- TimecardManager: Điều phối các thao tác quản lý bảng chấm công, như thêm, sửa, và xóa. Gọi dịch vụ kiểm tra tính hợp lệ và giao tiếp với cơ sở dữ liệu.
+- ValidationService: Kiểm tra tính hợp lệ của dữ liệu như. Giờ làm việc phải là số hợp lệ (lớn hơn 0). Ngày làm việc không được trùng lặp.
+- TimecardDatabase: Lưu trữ và quản lý dữ liệu bảng chấm công.
+## 4.4 Quan hệ giữa các lớp:
+- Employee - TimecardManager: Nhân viên tương tác với hệ thống thông qua lớp TimecardManager để quản lý bảng chấm công.
+- TimecardManager - ValidationService: Kiểm tra dữ liệu trước khi lưu trữ.
+- TimecardManager - TimecardDatabase: Thực hiện lưu, cập nhật, hoặc xóa dữ liệu bảng chấm công.
+- Timecard - Employee: Một nhân viên có thể có nhiều bản ghi bảng chấm công
+## 4.5 Thuộc tính và phương thức:
+- Employee:
+   - Thuộc tính: `id`,`name`, `role`.
+   - Quan hệ: Quản lý nhiều bản ghi bảng chấm công.
+  
+- Timecard:
+   - Thuộc tính: `timecardId`, `employeeId`, `workDate`, `hoursWorked`, `overtimeHours`.
+   - Quan hệ: Thuộc về một nhân viên cụ thể.
 
-![Diagram](https://www.planttext.com/api/plantuml/png/b5EnRjim4Dtv5GTDQM4FNJKbZeNQXOqOiTFCD7MmsKYaG1wB1a6dVa7HgUZSiLEtQiZG_eY-eB_Gesn92Te2xI3ewV7nzDuT-RE-F_Ka7OMo4AIfG9ZefduNuCVxflu0YwR-L87QQo3TVBidXXRE9QoR-WjCc_gpsS5IQaFym4QNgAJBXP1RJqugbXVIUvX8ZvdXyhTm9m36EazXOSqkOkLG4kPdbCAKGQH2bJ-YtWfng9ELLM5l4G7V49hyzy96bfZ2cfm-5C-nucmbcbYgnt6bibwJjYQ5rH4n2qeMAXJypuqbMSniSFxQkXlCJvwaeDkTuCEsrDHbFUa0D-W0MFdQwdnmtIl-vheTG4mwj81rZudzuALp4lTHy35lVBVvBQ5_q80_1UgYi3yqeJpkXZiGwwl9ShxPPDCHdArMbnSl8xhCNcJdp3t88_tDVqp0AwUhGwi76ZstAmwvjTGdgfosZclnL8wejzaHqUZYude4osmwlrgEO3P_FeF1tShPLyWdxvyCygx-J2NF4XYF8NcQ31DBGNt_AlhFk1Obh6oRaC9MMjZnHIb5IoIq3qtzKRMoenCXJja8twzV0000__y30000)
+- TimecardManager:
+   - Phương thức:
+      - `addTimecard(timecard: Timecard): void`
+      - `updateTimecard(timecard: Timecard): void`
+      - `deleteTimecard(timecardId: int): void`.
+
+- ValidationService:
+   - Phương thức:
+      - `validateTimecard(timecard: Timecard): boolean.`
+- TimecardDatabase:
+
+   - Phương thức:
+      - `saveTimecard(timecard: Timecard): void`
+      - `updateTimecard(timecard: Timecard): void`
+      - `deleteTimecard(timecardId: int): void.`
+    
+## Biểu đồ lớp mô tả lớp phân tích:
+![Diagram](https://www.planttext.com/api/plantuml/png/j5EnJiCm4Dtp5LQcClG7Cg0E8C70r0hcQtmK2ziNdPsW2l5b37mIlu3TsAPW45t84CNttZs_UtRUNzzMpWFxqUYcr-2Sk3I3fZsYU6v4V9JiXB9-NbWms8crPsLtSuL9VrPUcYIoKGPxO9b5V5fV7ujXskbByOduyG9yq8plkVP08xkx061Wtck2nAK9EIfVHJmZbOSRiB13pbP0oemiigskaCywCP6ICtKSPF1mAbkYnX_OQRfCBVPkGQiWhyYkaIVLby2d6VXZtos5uC7MuuROO0kko3cOJXxXdmOkLsgvFA-EfHEjENowjlcEHNwTK-Z86VtIKsKHMWPafvm_wZXGYxT0OTHHKtXgcnLQ6N-A3m000F__0m00)
+
+## 5.Hợp nhất kết quả phân tích
+
+## 5.1 Tóm tắt các ca sử dụng
+# Ca sử dụng 1: Select Payment
+- Mục đích: Quản lý việc tính toán và thực hiện thanh toán lương cho nhân viên, bao gồm:
+   - Lương theo giờ.
+   - Lương cố định (salaried).
+   -Lương hoa hồng (commission-based).
+- Chức năng chính:
+   - Tính toán lương dựa trên dữ liệu bảng chấm công và tỷ lệ lương.
+   - Hỗ trợ nhiều phương thức thanh toán (chuyển khoản, gửi qua bưu điện, tại văn phòng).
+   - Báo cáo thông tin thanh toán.
+# Ca sử dụng 2: Maintain Timecard
+- Mục đích: Quản lý bảng chấm công của nhân viên, bao gồm:
+   - Thêm mới bảng chấm công.
+   - Cập nhật hoặc xóa dữ liệu bảng chấm công.
+- Chức năng chính:
+   - Lưu trữ dữ liệu thời gian làm việc, giờ làm thêm và dự án liên quan.
+   - Kiểm tra tính hợp lệ của dữ liệu chấm công.
+   - Đồng bộ dữ liệu với cơ sở dữ liệu bảng chấm công
+
+## 5.2 Biểu đồ hợp nhất của hai ca sử dụng:
+![Diagram](https://www.planttext.com/api/plantuml/png/j5JDRjim3BxxAOISCg0zz2eCHGyTi09DC233TcOa9X6c7qC_xefXJxP37wclC2gHvSHni5pcWm6J7ycFv4U__tbx215yJ4OtGaC8x9DfjNj5PByQjd-Kv4pPMBui6EHi5RsossBoJezD4bjAQj36wlZTb09VbK41NjO2iHYUJWfXuN5gVN7-noD4gfVVnRXpoOVlv472RhI37kqwz3dxvmmuTOaT-2qkarcZlynn0HQsw2jLaB9tpNlQlA8_SDOv9GisjP8eNWsNg742NjhliPNXDz2AyYjdL-Wx9OPzTGVFFogl7MqDx2Zc2xpcfT5iONu4EfjB1gmX34K3TDUt-dydKtgerDh3zpNg0kDIbkonKDewabFH5Vi2uyx9SmKL5cC12T0YwM7Iyvu8huTtKm-29FkiGlpOjtvFlPQulesVADAGh72ggAdPqBNgoVLTaQJ-6sPtCtPxUyzcozbmptn_dO4vsupl9sEFS6Pl3fEmSs5pbi85y9aUEHFEc6ILe1a7zgBYhXcj8iVLHZZpI9l3Zi1K5TZ6-Qc08_APJ8RLNHBLgP2fHlex2rC1u-Lm5gBpX7r0A_CF-Yy0003__mC0)
+
+# 5.3 Nhiệm vụ và các lớp chính:
+- Employee:
+      - Đối tượng trung tâm kết nối với cả bảng chấm công và hệ thống bảng lương.
+      - Lưu trữ thông tin nhân viên như mã định danh, vai trò, và phòng ban.
+- Timecard:
+      - Chứa dữ liệu thời gian làm việc của nhân viên, bao gồm giờ làm việc và giờ làm thêm.
+      - Là nguồn dữ liệu chính cho hệ thống tính lương.
+- TimecardManager:
+      - Quản lý các thao tác thêm, sửa, xóa bảng chấm công.
+      - Kiểm tra tính hợp lệ thông qua ValidationService và đồng bộ với cơ sở dữ liệu.
+- Payment:
+      - Đại diện cho khoản lương của một nhân viên.
+      - Chứa thông tin như số tiền, ngày thanh toán, và phương thức thanh toán.
+- PaymentManager:
+      - Chịu trách nhiệm tính toán lương dựa trên bảng chấm công và loại hình lương (giờ, cố định, hoa hồng).
+      - Thực hiện việc thanh toán và lưu trữ thông tin qua cơ sở dữ liệu bảng lương.
+- ValidationService:
+      - Đảm bảo tính chính xác của cả dữ liệu bảng chấm công và dữ liệu thanh toán.
+- TimecardDatabase và PayrollDatabase:
+      - Lưu trữ dữ liệu tương ứng với từng hệ thống.
+# Biểu đồ Sequence hợp nhất:
+![Diagram](https://www.planttext.com/api/plantuml/png/X5D1RiCW4BppYlr0b3k7A5NJOwMeJdlVmhf2mc01jkItzT0dzGl5RUnW82f7TeQPdLs-Fx-EFg0BGwSPYc0TF7MzjXCHw-Er4gf74-2YEXBev3CQ_22tgRsXLXA3igOXDofHPvumu3lwRV6CKqScr5wD9MUrNcbiyGMxGsw7muEK-zS-kg3zYJG5MY4imyxqmZ5VhX9U0O9TJVa6WnVoWmuCTPe9D8CGv7qxQ0RnLEpa4N5eSAHx_QIFB8owjKThMkMwNnkCZ6Iiv1so6V3OHN2AnfkYXpQknHN6jl3_qhoYOHQyasYkNmPQIcRByHTOQZ6jLbKssPG2oxBnjOEpi_COIIO3rHCxnbpdl_C3003__mC0)
