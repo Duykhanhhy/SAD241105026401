@@ -27,6 +27,7 @@
       - Gửi lệnh chuyển khoản (nếu chọn phương thức "Direct Deposit").
       - In paycheck (cho các phương thức khác).
     - Cập nhật trạng thái trả lương.
+      
   1.3 Manage Employee Records.
   - Mô tả: Quản trị viên quản lý hồ sơ nhân viên.
   - Dòng sự kiện chính:
